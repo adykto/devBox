@@ -9,5 +9,5 @@ class apache {
   }
 
   apache::conf { ['apache2.conf', 'envvars', 'ports.conf']: }
-  apache::module { ['expires.load', 'proxy.conf', 'proxy.load', 'proxy_http.load', 'rewrite.load', 'vhost_alias']: }
+  apache::module { ['expires.load', 'proxy.conf', 'proxy.load', 'proxy_http.load', 'rewrite.load', 'vhost_alias.load']: }
 }
