@@ -12,6 +12,6 @@ define apache_vhosts::vhost() {
 
     "/var/www/${name}":
       ensure => link,
-      target => "/devbox/projects/${name}";
+      target => "/vagrant/projects/${name}";
   }
 }

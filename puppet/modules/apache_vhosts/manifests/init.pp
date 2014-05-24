@@ -1,7 +1,7 @@
 class apache_vhosts {
-  file { '/devbox/projects':
+  file { '/vagrant/projects':
     ensure => directory;
   }
 
-  apache_vhosts::vhost { ['static-site', 'dynamic-site']: }
+  apache_vhosts::vhost { ['common']: }
 }
