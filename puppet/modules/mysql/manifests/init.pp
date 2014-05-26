@@ -15,15 +15,22 @@ class mysql {
   }
 
   exec { 'set-mysql-password':
-    unless  => 'mysqladmin -uroot -proot status',
-    command => "mysqladmin -uroot password root",
+    unless  => 'mysqladmin -uroot -ppassword status',
+    command => "mysqladmin -uroot password password",
     path    => ['/bin', '/usr/bin'],
     require => Service['mysql'];
   }
 
-  exec { 'load-dynamic-sql':
-    command => 'mysql -u root -proot < /vagrant/db/seed.sql',
+  exec { 'reset-root-privileges':
+    command => 'mysql -u root -ppassword -e "GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\" IDENTIFIED BY \"password\" WITH GRANT OPTION; FLUSH PRIVILEGES;"',
     path    => ['/bin', '/usr/bin'],
     require => Exec['set-mysql-password'];
   }
+
+  exec { 'database-seed':
+    command => 'mysql -u root -ppassword < /vagrant/db/seed.sql',
+    path    => ['/bin', '/usr/bin'],
+    require => Exec['reset-root-privileges'];
+  }
+
 }

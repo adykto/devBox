@@ -3,6 +3,7 @@ class php {
              'php5-cli',
              'libapache2-mod-php5',
              'php-apc',
+             'php-pear',
              'php5-curl',
              'php5-dev',
              'php5-gd',

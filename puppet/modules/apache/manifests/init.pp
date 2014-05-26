@@ -8,6 +8,6 @@ class apache {
     require => Package['apache2'];
   }
 
-  apache::conf { ['apache2.conf', 'envvars', 'ports.conf']: }
-  apache::module { ['expires.load', 'proxy.conf', 'proxy.load', 'proxy_http.load', 'rewrite.load', 'vhost_alias.load']: }
+  apache::conf { ['apache2.conf', 'ports.conf', 'httpd.conf', 'envvars']: }
+  apache::module { ['expires.load', 'proxy.conf', 'proxy.load', 'proxy_http.load', 'rewrite.load', 'vhost_alias.load', 'headers.load']: }
 }
