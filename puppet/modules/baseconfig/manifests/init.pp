@@ -3,24 +3,15 @@ class baseconfig {
     command => '/usr/bin/apt-get update';
   }
 
-  package { ['mongodb', 'nodejs', 'nodejs-dev', 'npm', 'redis-server', 'git-core',
-             'build-essential', 'g++', 'make', 'wget']:
+  package { ['mongodb', 'redis-server', 'g++', 'zip', 'unzip', 'curl', 'wget',
+             'git-core', 'build-essential', 'make', 'language-pack-en',
+             'python-sphinxcontrib-httpdomain', 'python-sphinx',
+             'nodejs', 'nodejs-dev', 'npm']:
     ensure => present;
   }
 
   host { 'hostname':
     ip => '10.10.10.10';
-  }
-
-  file { '/usr/bin/node':
-    ensure => 'link',
-    target => '/usr/bin/nodejs',
-    require => Package['nodejs'];
-  }
-
-  exec { 'npm install -g grunt':
-    command => '/usr/bin/npm install -g grunt grunt-cli grunt-contrib-clean grunt-contrib-concat grunt-contrib-copy grunt-contrib-cssmin grunt-contrib-jshint grunt-contrib-nodeunit grunt-contrib-uglify grunt-contrib-watch',
-    require => Package['nodejs'];
   }
 
   file {

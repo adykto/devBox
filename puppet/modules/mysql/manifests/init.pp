@@ -30,6 +30,7 @@ class mysql {
   exec { 'database-seed':
     command => 'mysql -u root -ppassword < /vagrant/db/seed.sql',
     path    => ['/bin', '/usr/bin'],
+    timeout     => 7200,
     require => Exec['reset-root-privileges'];
   }
 

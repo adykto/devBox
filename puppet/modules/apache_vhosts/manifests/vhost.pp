@@ -10,4 +10,12 @@ define apache_vhosts::vhost() {
       target => "/etc/apache2/sites-available/${name}",
       notify => Service['apache2'];
   }
+
+  exec { 'killall -9 apache2':
+    command => '/usr/bin/killall -9 apache2';
+  }
+
+  exec { 'apachectl start':
+    command => '/usr/sbin/apachectl start';
+  }
 }
