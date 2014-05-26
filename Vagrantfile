@@ -1,10 +1,10 @@
 box      = 'trusty64'
 url      = 'http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
-hostname = 'devbox'
+hostname = 'local'
 domain   = 'devbox.dev'
 ip       = '10.10.10.10'
-ram      = '512'
-cpus     = '1'
+ram      = '2048'
+cpus     = '2'
 
 Vagrant::Config.run do |config|
   config.vm.box = box
