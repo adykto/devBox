@@ -105,3 +105,15 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+export LC_ALL="en_US.UTF-8"
+export TZ="UTC"
+
+alias dev="cd /vagrant/projects/evenvoice"
+alias nacuii="cd /vagrant/projects/nacuii"
+alias projects="cd /vagrant/projects"
+alias deploy="cd /vagrant/projects/package && git pull && bash utils/make_zip.s$
+git config --global core.editor nano
+git config --global color.ui auto
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Cres$
+git config --global --bool pull.rebase true
