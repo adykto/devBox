@@ -14,6 +14,14 @@ class baseconfig {
     ip => '10.10.10.10';
   }
 
+  exec { 'locale-gen':
+    command => '/usr/sbin/locale-gen en_US en_US.UTF-8';
+  }
+
+  exec { 'dpkg-reconfigure locales':
+    command => '/usr/sbin/dpkg-reconfigure locales';
+  }
+
   file {
     '/home/vagrant/.bashrc':
       owner => 'vagrant',
