@@ -23,7 +23,7 @@ class baseconfig {
   }
 
   exec { 'increase file watches':
-    command => '/usr/bin/bash echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sudo sysctl -p';
+    command => '/sbin/sysctl fs.inotify.max_user_watches=65536';
   }
 
   file {
