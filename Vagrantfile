@@ -3,7 +3,7 @@ url      = 'http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-
 hostname = 'local'
 domain   = 'devbox.dev'
 ip       = '10.10.10.10'
-ram      = '2048'
+ram      = '1024'
 cpus     = '2'
 
 Vagrant::Config.run do |config|
@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
   config.vm.host_name = hostname + '.' + domain
   config.vm.network :hostonly, ip
 
-  config.vm"virtualbox" do |v|
+  config.vm :"virtualbox" do |v|
     v.customize[
         'modifyvm', :id,
         '--name', hostname,
