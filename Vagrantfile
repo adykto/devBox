@@ -3,8 +3,8 @@ url      = 'http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-
 hostname = 'local'
 domain   = 'devbox.dev'
 ip       = '10.10.10.10'
-ram      = '1024'
-cpus     = '2'
+ram      = '4096'
+cpus     = '4'
 
 Vagrant::Config.run do |config|
   config.vm.box = box
@@ -12,14 +12,12 @@ Vagrant::Config.run do |config|
   config.vm.host_name = hostname + '.' + domain
   config.vm.network :hostonly, ip
 
-  config.vm :"virtualbox" do |v|
-    v.customize[
+  config.vm.customize [
         'modifyvm', :id,
         '--name', hostname,
         '--memory', ram,
         '--cpus', cpus
       ]
-  end
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'
