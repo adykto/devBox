@@ -1,9 +1,9 @@
 <Virtualhost *:80>
-    VirtualDocumentRoot "/vagrant/projects/%1"
+    VirtualDocumentRoot "/Public/%1"
     ServerName devbox.dev
     ServerAlias *.dev
     UseCanonicalName Off
-    <Directory "/vagrant/projects/*">
+    <Directory "/Public/*">
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
         Order allow,deny
