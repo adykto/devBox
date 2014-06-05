@@ -110,10 +110,8 @@ export LANG=en_US.UTF-8
 export LC_ALL="en_US.UTF-8"
 export TZ="UTC"
 
-alias dev="cd /vagrant/projects/evenvoice"
-alias nacuii="cd /vagrant/projects/nacuii"
-alias projects="cd /vagrant/projects"
-alias deploy="cd /vagrant/projects/package && git pull && bash utils/make_zip.sh"
+alias dev="cd /Public/"
+alias deploy="cd /Public/deploy && git pull && bash utils/make_zip.sh"
 git config --global core.editor nano
 git config --global color.ui auto
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
