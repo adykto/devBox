@@ -1,23 +1,30 @@
 box      = 'trusty64'
 url      = 'http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
-hostname = 'local'
-domain   = 'devbox.dev'
+hostname = 'devbox.dev'
 ip       = '10.10.10.10'
-ram      = '4096'
-cpus     = '4'
+ram      = '2048'
+cpus     = '2'
+cap      = '50'
 
-Vagrant::Config.run do |config|
+Vagrant.configure("2") do |config|
   config.vm.box = box
   config.vm.box_url = url
-  config.vm.host_name = hostname + '.' + domain
-  config.vm.network :hostonly, ip
+  config.vm.hostname = hostname
+  config.vm.network :private_network, ip: ip
+  config.vm.synced_folder "../", "/Public", create: true, type: :nfs
 
-  config.vm.customize [
-        'modifyvm', :id,
-        '--name', hostname,
-        '--memory', ram,
-        '--cpus', cpus
+  config.vm.provider "virtualbox" do |vbox|
+      vbox.name = hostname
+      vbox.customize [
+          "modifyvm", :id,
+          "--groups", "/DevBox",
+          "--memory", ram,
+          "--cpus", cpus,
+          "--cpuexecutioncap", cap
       ]
+      vbox.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate//Public", "1"]
+  end
+
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'
