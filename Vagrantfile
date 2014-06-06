@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
       vbox.name = hostname
       vbox.customize [
           "modifyvm", :id,
-          "--groups", "/DevBox",
+          "--groups", "/devBox",
           "--memory", ram,
           "--cpus", cpus,
           "--cpuexecutioncap", cap
