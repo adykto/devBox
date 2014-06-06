@@ -4,9 +4,9 @@ class baseconfig {
   }
 
   package { ['mongodb', 'redis-server', 'g++', 'zip', 'unzip', 'curl', 'wget',
-             'git-core', 'build-essential', 'make', 'language-pack-en',
-             'python-sphinxcontrib-httpdomain', 'python-sphinx',
-             'nodejs', 'nodejs-dev', 'npm']:
+             'git-core', 'build-essential', 'make', 'language-pack-en', 'elinks',
+             'python-sphinxcontrib-httpdomain', 'python-sphinx', 'gpm', 'htop',
+             'nodejs', 'nodejs-dev', 'npm', 'tmux']:
     ensure => present;
   }
 
