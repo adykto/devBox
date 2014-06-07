@@ -110,6 +110,7 @@ export LANG=en_US.UTF-8
 export LC_ALL="en_US.UTF-8"
 export TZ="UTC"
 
+alias top="htop"
 alias dev="cd /Public/"
 alias deploy="cd /Public/deploy && git pull && bash utils/make_zip.sh"
 git config --global core.editor nano
