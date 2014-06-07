@@ -28,6 +28,20 @@ $ mkdir db
 $ cp backup_mysql.sql db/seed.sql
 ```
 
+### Windows
+
+* Install PuTTY
+* Import private key
+* Install UTF-8 DejaVu Sans Mono font [Download](http://dejavu-fonts.org/wiki/Download)
+* Activate PuTTY's support for xterm-256-color
+* Activate PuTTY's attempt to use logical palettes
+* Append VirtualBox's binaries to your PATH
+* Open cmd.exe and run:
+
+```bash
+C:\> VBoxManage setextradata devbox.dev VBoxInternal2/SharedFoldersEnableSymlinksCreate//Public 1
+```
+
 Now, we can run our Puppet provisioner
 
 ```bash
