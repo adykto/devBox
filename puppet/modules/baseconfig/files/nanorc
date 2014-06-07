@@ -1,0 +1,8 @@
+set mouse
+set autoindent
+unset backup
+set const
+set morespace
+set smarthome
+set smooth
+set tabsize 4

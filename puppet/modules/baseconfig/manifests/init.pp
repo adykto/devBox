@@ -27,6 +27,30 @@ class baseconfig {
   }
 
   file {
+    '/home/vagrant/.gitconfig':
+      owner => 'vagrant',
+      group => 'vagrant',
+      mode  => '0644',
+      source => 'puppet:///modules/baseconfig/gitconfig';
+  }
+
+  file {
+    '/home/vagrant/split.sh':
+      owner => 'vagrant',
+      group => 'vagrant',
+      mode  => '0644',
+      source => 'puppet:///modules/baseconfig/split';
+  }
+
+  file {
+    '/home/vagrant/.tmux.conf':
+      owner => 'vagrant',
+      group => 'vagrant',
+      mode  => '0644',
+      source => 'puppet:///modules/baseconfig/tmux';
+  }
+
+  file {
     '/home/vagrant/.bashrc':
       owner => 'vagrant',
       group => 'vagrant',
