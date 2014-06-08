@@ -12,7 +12,8 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = hostname
   config.vm.network :private_network, ip: ip
   config.vm.synced_folder "../", "/Public", create: true, type: :nfs
-
+  config.vm.provision :shell, :inline => 'apt-get update'
+  
   config.vm.provider "virtualbox" do |vbox|
       vbox.name = hostname
       vbox.customize [

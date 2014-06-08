@@ -1,6 +1,7 @@
 class baseconfig {
-  exec { 'apt-get update':
-    command => '/usr/bin/apt-get update';
+  exec { "apt-update":
+      command => "/usr/bin/apt-get update",
+      before  => Stage["main"],
   }
 
   package { ['mongodb', 'redis-server', 'g++', 'zip', 'unzip', 'curl', 'wget',
@@ -35,11 +36,19 @@ class baseconfig {
   }
 
   file {
-    '/home/vagrant/split.sh':
+    '/home/vagrant/.setup.sh':
       owner => 'vagrant',
       group => 'vagrant',
       mode  => '0644',
-      source => 'puppet:///modules/baseconfig/split';
+      source => 'puppet:///modules/baseconfig/setup.sh';
+  }
+
+  file {
+    '/home/vagrant/.split.sh':
+      owner => 'vagrant',
+      group => 'vagrant',
+      mode  => '0644',
+      source => 'puppet:///modules/baseconfig/split.sh';
   }
 
   file {
