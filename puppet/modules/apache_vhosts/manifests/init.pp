@@ -3,5 +3,5 @@ class apache_vhosts {
     ensure => directory;
   }
 
-  apache_vhosts::vhost { ['common']: }
+  apache_vhosts::vhost { ['default']: }
 }

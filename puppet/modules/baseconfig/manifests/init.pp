@@ -4,10 +4,8 @@ class baseconfig {
       before  => Stage["main"],
   }
 
-  package { ['mongodb', 'redis-server', 'g++', 'zip', 'unzip', 'curl', 'wget',
-             'git-core', 'build-essential', 'make', 'language-pack-en', 'elinks',
-             'python-sphinxcontrib-httpdomain', 'python-sphinx', 'gpm', 'htop',
-             'nodejs', 'nodejs-dev', 'npm', 'tmux']:
+  package { ['zip', 'unzip', 'curl', 'wget',
+             'git-core', 'build-essential', 'language-pack-en', 'elinks' ]:
     ensure => present;
   }
 
@@ -25,38 +23,6 @@ class baseconfig {
 
   exec { 'increase file watches':
     command => '/sbin/sysctl fs.inotify.max_user_watches=65536';
-  }
-
-  file {
-    '/home/vagrant/.gitconfig':
-      owner => 'vagrant',
-      group => 'vagrant',
-      mode  => '0644',
-      source => 'puppet:///modules/baseconfig/gitconfig';
-  }
-
-  file {
-    '/home/vagrant/.setup.sh':
-      owner => 'vagrant',
-      group => 'vagrant',
-      mode  => '0644',
-      source => 'puppet:///modules/baseconfig/setup.sh';
-  }
-
-  file {
-    '/home/vagrant/.split.sh':
-      owner => 'vagrant',
-      group => 'vagrant',
-      mode  => '0644',
-      source => 'puppet:///modules/baseconfig/split.sh';
-  }
-
-  file {
-    '/home/vagrant/.tmux.conf':
-      owner => 'vagrant',
-      group => 'vagrant',
-      mode  => '0644',
-      source => 'puppet:///modules/baseconfig/tmux';
   }
 
   file {

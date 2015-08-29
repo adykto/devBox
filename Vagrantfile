@@ -1,5 +1,5 @@
-box      = 'trusty64'
-url      = 'http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box'
+box      = 'ubuntu-precise12042-x64-vbox43'
+url      = 'http://box.puphpet.com/ubuntu-precise12042-x64-vbox43.box'
 hostname = 'devbox.dev'
 ip       = '10.10.10.10'
 ram      = '2048'
