@@ -2,9 +2,9 @@ box      = 'ubuntu-precise12042-x64-vbox43'
 url      = 'http://box.puphpet.com/ubuntu-precise12042-x64-vbox43.box'
 hostname = 'devbox.dev'
 ip       = '10.10.10.10'
-ram      = '2048'
-cpus     = '2'
-cap      = '50'
+ram      = '512'
+cpus     = '1'
+cap      = '20'
 
 Vagrant.configure("2") do |config|
   config.vm.box = box
